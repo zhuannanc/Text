@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 语言演示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .section p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .keyword {
+            color: #ff79c6;
+        }
+
+        .string {
+            color: #f1fa8c;
+        }
+
+        .comment {
+            color: #6272a4;
+            font-style: italic;
+        }
+
+        .function {
+            color: #50fa7b;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .run-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 15px;
+        }
+
+        .run-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .output {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+            font-family: monospace;
+            display: none;
+        }
+
+        footer {
+            background: #2d2d2d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☕ Java 语言演示</h1>
+            <p>简单、面向对象、强类型的编程语言</p>
+        </header>
+
+        <div class="content">
+            <div class="section">
+                <h2>什么是 Java？</h2>
+                <p>Java 是一种广泛使用的面向对象编程语言，由 Sun Microsystems（现为 Oracle）于 1995 年发布。</p>
+                <p>Java 的设计理念是 "Write Once, Run Anywhere"（一次编写，到处运行），这意味着编译后的 Java 代码可以在所有支持 Java 的平台上运行。</p>
+            </div>
+
+            <div class="section">
+                <h2>Java 特性</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>🎯 面向对象</h3>
+                        <p>Java 是纯面向对象的语言，一切皆对象，支持封装、继承和多态。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔒 安全性</h3>
+                        <p>Java 提供了安全的执行环境，包括沙箱机制和异常处理。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🌐 跨平台</h3>
+                        <p>通过 JVM（Java 虚拟机）实现跨平台运行。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>⚡ 高性能</h3>
+                        <p>JIT 编译器优化和多线程支持使 Java 性能优异。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Hello World 示例</h2>
+                <p>最经典的 Java 程序：</p>
+                <div class="code-block">
+                    <pre><span class="keyword">public class</span> <span class="function">HelloWorld</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(String[] args) {
+        <span class="comment">// 输出 Hello World</span>
+        System.out.<span class="function">println</span>(<span class="string">"Hello, World!"</span>);
+    }
+}</pre>
+                </div>
+                <button class="run-button" onclick="runHelloWorld()">运行代码</button>
+                <div class="output" id="output1"></div>
+            </div>
+
+            <div class="section">
+                <h2>类和对象示例</h2>
+                <p>Java 的面向对象编程示例：</p>
+                <div class="code-block">
+                    <pre><span class="keyword">public class</span> <span class="function">Person</span> {
+    <span class="comment">// 成员变量</span>
+    <span class="keyword">private</span> String name;
+    <span class="keyword">private</span> <span class="keyword">int</span> age;
+
+    <span class="comment">// 构造方法</span>
+    <span class="keyword">public</span> <span class="function">Person</span>(String name, <span class="keyword">int</span> age) {
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.age = age;
+    }
+
+    <span class="comment">// 成员方法</span>
+    <span class="keyword">public void</span> <span class="function">introduce</span>() {
+        System.out.<span class="function">println</span>(<span class="string">"我叫 "</span> + name + <span class="string">", 今年 "</span> + age + <span class="string">" 岁"</span>);
+    }
+}
+
+<span class="keyword">public class</span> <span class="function">Main</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(String[] args) {
+        Person person = <span class="keyword">new</span> <span class="function">Person</span>(<span class="string">"张三"</span>, <span class="number">25</span>);
+        person.<span class="function">introduce</span>();
+    }
+}</pre>
+                </div>
+                <button class="run-button" onclick="runPersonDemo()">运行代码</button>
+                <div class="output" id="output2"></div>
+            </div>
+
+            <div class="section">
+                <h2>条件判断和循环</h2>
+                <div class="code-block">
+                    <pre><span class="keyword">public class</span> <span class="function">ControlFlow</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(String[] args) {
+        <span class="comment">// 条件判断</span>
+        <span class="keyword">int</span> score = <span class="number">85</span>;
+        <span class="keyword">if</span> (score >= <span class="number">90</span>) {
+            System.out.<span class="function">println</span>(<span class="string">"优秀"</span>);
+        } <span class="keyword">else if</span> (score >= <span class="number">60</span>) {
+            System.out.<span class="function">println</span>(<span class="string">"及格"</span>);
+        } <span class="keyword">else</span> {
+            System.out.<span class="function">println</span>(<span class="string">"不及格"</span>);
+        }
+
+        <span class="comment">// for 循环</span>
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">5</span>; i++) {
+            System.out.<span class="function">println</span>(<span class="string">"第 "</span> + i + <span class="string">" 次循环"</span>);
+        }
+    }
+}</pre>
+                </div>
+                <button class="run-button" onclick="runControlFlow()">运行代码</button>
+                <div class="output" id="output3"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Java 语言演示 | 学习 Java，从这里开始</p>
+        </footer>
+    </div>
+
+    <script>
+        function runHelloWorld() {
+            const output = document.getElementById('output1');
+            output.style.display = 'block';
+            output.innerHTML = '<strong>输出结果：</strong><br>Hello, World!';
+        }
+
+        function runPersonDemo() {
+            const output = document.getElementById('output2');
+            output.style.display = 'block';
+            output.innerHTML = '<strong>输出结果：</strong><br>我叫 张三, 今年 25 岁';
+        }
+
+        function runControlFlow() {
+            const output = document.getElementById('output3');
+            output.style.display = 'block';
+            output.innerHTML = `<strong>输出结果：</strong><br>
+及格<br>
+第 1 次循环<br>
+第 2 次循环<br>
+第 3 次循环<br>
+第 4 次循环<br>
+第 5 次循环`;
+        }
+    </script>
+</body>
+</html>
